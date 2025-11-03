@@ -33,6 +33,40 @@ void main(){
         if(rlbit==0){
             val =2;
         }
+
+        if(val == 1){
+            buzzer=1;
+            relay=1;
+
+            PORTA= 0x20;
+            msdelay(50);
+            for(i=0;i<8;i++){
+                PORTA= PORTA>>1; //shift right by 1
+                msdelay(50);
+                
+            }
+        }
+
+        if(val==2){
+            buzzer= 0;
+            relay=0;
+            PORTA= 0x01;
+
+            msdelay(50);
+            for(i=0;i<8;i++){
+                msdelay(50);
+                PORTA= PORTA<<1;
+            }
+        }
     }
 
+}
+
+void msdelay(unsigned int time){
+     unsigned int i,j;
+     for(i=0;i<time;i++){
+        for(j=0;j<710;j++){
+            
+        }
+     }
 }
